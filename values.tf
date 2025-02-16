@@ -1,10 +1,9 @@
-# values.tf
 gcp_region = "us-central1"
 aws_region = "us-west-2"
 num_tunnels = 2
 
-local_cidr_blocks = ["192.168.1.0/24"]
-remote_cidr_blocks = ["10.0.0.0/16"]
+local_cidr_blocks = ["192.168.1.0/24"]  # GCP CIDR block
+remote_cidr_blocks = ["10.0.0.0/16"]   # AWS CIDR block
 
 ike_phase1_proposals = [
   {
@@ -15,5 +14,5 @@ ike_phase1_proposals = [
 ]
 
 pre_shared_key = "secure-pre-shared-key"
-gcp_network_name = "hybrid-vpn-network"
+gcp_network_name = "gcp-vpn-network"
 aws_vpc_id = "vpc-12345678"
