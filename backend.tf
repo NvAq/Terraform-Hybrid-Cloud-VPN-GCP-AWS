@@ -1,7 +1,6 @@
-# backend.tf
 terraform {
   backend "gcs" {
-    bucket = "my-terraform-state-bucket"
-    prefix = "hybrid-vpn/state"
+    bucket = "gcp-vpn-state-bucket"
+    prefix = "main/state"
   }
 }
