@@ -51,3 +51,9 @@ variable "aws_vpc_id" {
   type        = string
   description = "The ID of the AWS VPC to connect to."
 }
+
+variable "peer_gcp_gateway_ips" {
+  description = "List of external IP addresses for the peer VPN gateway"
+  type        = list(string)
+  default     = []
+}
