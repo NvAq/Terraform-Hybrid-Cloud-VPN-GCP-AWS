@@ -1,4 +1,3 @@
-# variables.tf
 variable "gcp_region" {
   type        = string
   description = "The GCP region where the VPN gateway will be deployed."
