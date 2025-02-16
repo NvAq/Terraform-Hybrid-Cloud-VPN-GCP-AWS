@@ -1,28 +1,19 @@
-# backend_bucket.tf
-resource "google_storage_bucket" "terraform_state" {
-  name          = "my-terraform-state-bucket"
+resource "google_storage_bucket" "main_state_bucket" {
+  name          = "gcp-vpn-state-bucket"
   location      = "US"
-  force_destroy = true
-
-  lifecycle_rule {
-    action {
-      type = "Delete"
-    }
-    condition {
-      age = 30 # Automatically delete objects older than 30 days
-    }
-  }
+  force_destroy = false # Disable automatic deletion of the bucket
 
   versioning {
-    enabled = true
+    enabled = true # Enable versioning to retain historical versions
+  }
+
+  labels = {
+    environment = "production"
+    purpose     = "vpn-state-storage"
+    owner       = "terraform"
   }
 
   logging {
-    log_bucket = "my-terraform-state-bucket-logs"
-  }
-
-  website {
-    main_page_suffix = "index.html"
-    not_found_page   = "404.html"
+    log_bucket = "gcp-vpn-state-logs"
   }
 }
