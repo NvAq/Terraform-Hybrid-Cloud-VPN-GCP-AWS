@@ -1,4 +1,3 @@
-# main.tf
 module "gcp_vpn" {
   source = "./modules/gcp_vpn"
 
